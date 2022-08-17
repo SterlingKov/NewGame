@@ -17,4 +17,5 @@ inventory_bar_im = pygame.image.load('inventory_bar.png').convert_alpha()
 walgreen_entr_im = pygame.image.load('room_1.png').convert_alpha()
 grandma_im = pygame.image.load('grandma.png').convert_alpha()
 
+
 player_w, player_h = pspr.get_size()

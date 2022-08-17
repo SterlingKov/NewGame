@@ -19,6 +19,9 @@ class Grandma(pygame.sprite.Sprite):
         self.image = image
 
         self.rect = self.image.get_rect(center=pos)
+        
+        
+
 
         
 
