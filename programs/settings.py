@@ -14,7 +14,7 @@ pspr = pygame.image.load('pspr.png').convert_alpha()
 floor_im = pygame.image.load('floor.png').convert_alpha()
 p_drink_im = pygame.image.load('p_drink.png').convert_alpha()
 inventory_bar_im = pygame.image.load('inventory_bar.png').convert_alpha()
-walgreen_entr_im = pygame.image.load('room_1.png').convert_alpha()
+walgreen_entr_im = pygame.image.load('Wallgerns.png').convert_alpha()
 grandma_im = pygame.image.load('grandma.png').convert_alpha()
 
 

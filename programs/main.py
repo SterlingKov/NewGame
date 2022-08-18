@@ -20,6 +20,8 @@ constant_sprites = pygame.sprite.Group()
 room_0_sprites = pygame.sprite.Group()
 room_1_sprites = pygame.sprite.Group()
 
+entrances = pygame.sprite.Group()
+
 player = Player((infoObject.current_w/2,infoObject.current_h/2),pspr)
 floor = Floor((infoObject.current_w/4*2,540),floor_im)
 p_drink = Lean((infoObject.current_w/2-200, infoObject.current_h/2-200),p_drink_im)
@@ -28,10 +30,10 @@ grandma = Grandma((600,600),grandma_im)
 #p_drink1 = Lean((infoObject.current_w/2-50, infoObject.current_h/2-100),p_drink_im)
 
 #border
-black_bar_l = BlackBarBorder(BLACK, 0,0,infoObject.current_w/4,infoObject.current_h)
-black_bar_2 = BlackBarBorder(BLACK, infoObject.current_w/4*3,0,infoObject.current_w/4,infoObject.current_h)
-black_bar_3 = BlackBarBorder(BLACK, 0,0,infoObject.current_w,infoObject.current_h/5)
-black_bar_4 = BlackBarBorder(BLACK, 0,infoObject.current_h/5*4,infoObject.current_w,infoObject.current_h/5)
+black_bar_l = BlackBarBorder( 0,0,infoObject.current_w/4,infoObject.current_h)
+black_bar_2 = BlackBarBorder( infoObject.current_w/4*3,0,infoObject.current_w/4,infoObject.current_h)
+black_bar_3 = BlackBarBorder( 0,0,infoObject.current_w,infoObject.current_h/5)
+black_bar_4 = BlackBarBorder( 0,infoObject.current_h/5*4,infoObject.current_w,infoObject.current_h/5)
 
 #sprite list
 constant_sprites.add(player,black_bar_l,black_bar_2,black_bar_3,black_bar_4)
@@ -178,7 +180,7 @@ class GameState():
             room_0_sprites.draw(screen)
             if player.rect.x > infoObject.current_w/2 - 20 and player.rect.x < infoObject.current_w/2 + 20 and player.rect.y < 225:
                 self.state='room_1'
-                player.rect.y = 828
+                player.rect.y = 800
 
     def room_1(self):
         self.state='room_1'
@@ -186,6 +188,10 @@ class GameState():
         cck_for_drp_items(room_0_sprites)
         room_1_sprites.update()
         room_1_sprites.draw(screen)
+        if player.rect.x > infoObject.current_w/2 - 20 and player.rect.x < infoObject.current_w/2 + 20 and player.rect.y > 810:
+            self.state = 'room_0'
+            player.rect.y = 235
+
         
 
     def state_manager(self):

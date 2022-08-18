@@ -44,17 +44,15 @@ class Lean(pygame.sprite.Sprite):
         super().__init__()
         self.image = image
 
-        self.rect = self.image.get_rect(center=pos)
-
-        
+        self.rect = self.image.get_rect(center=pos)      
         
 class BlackBarBorder(pygame.sprite.Sprite):
-    def __init__(self, color, x, y, width, height):
+    def __init__(self, x, y, width, height):
         super().__init__()
         self.image = pygame.Surface([width,height])
         self.image.fill(WHITE)
         self.image.set_colorkey(WHITE)
-        pygame.draw.rect(self.image, color, [0, 0, width, height])
+        pygame.draw.rect(self.image, (0,0,0), [0, 0, width, height])
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
@@ -65,3 +63,8 @@ class InventoryBar(pygame.sprite.Sprite):
         self.image = image
 
         self.rect = self.image.get_rect(center=pos)
+
+class Door(pygame.sprite.Sprite):
+    def __init__(self, pos, image):
+        super().__init__()
+        self.image = pygame
